@@ -1,0 +1,17 @@
+# parameters for QC step 1
+
+qc_step1:
+  max_beta: 10
+  max_se: 10
+  min_n_events : 100,
+  min_maf: 0.01
+  min_imp_score: 0.6
+  min_n_eff: 50
+  max_gc: 1.1
+  others:
+    - "MAF < 0.01 & oevar_imp < 0.9"
+
+# parameters for QC step 2
+qc_step2:
+  afreq_ref:
+    EUR: "data/geno_ref/GENO-REF_1000G-sample_EUR.tsv.gz"

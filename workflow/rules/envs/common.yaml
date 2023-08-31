@@ -1,0 +1,14 @@
+name: common
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - r-data.table=1.14
+  - r-tidyverse=1.3
+  - r-glue=1.4.2
+  - r-pacman=0.5.1
+  - r-fs=1.5.2
+  - r-r.utils=2.10.1
+  - r-ragg=1.2
+  - htslib

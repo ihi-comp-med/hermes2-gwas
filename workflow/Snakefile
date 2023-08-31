@@ -1,0 +1,20 @@
+# The main entry point of your workflow.
+# Run from root dir (parent dir of this Snakefile)
+# After configuring, running snakemake -n in a clone of this repository should successfully execute a dry-run of the workflow.
+
+# --------------
+# Configuration
+# --------------
+from pathlib import Path
+import pandas as pd
+import yaml
+
+configfile: "workflow/config/general.yaml"
+
+# --------------
+# Load rules
+# --------------
+include: "rules/common.smk"
+include: "rules/qc.smk"
+include: "rules/meta_analysis.smk"
+include: "rules/gcta_cojo.smk"

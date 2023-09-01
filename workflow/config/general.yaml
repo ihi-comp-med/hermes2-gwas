@@ -14,4 +14,4 @@ qc_step1:
 # parameters for QC step 2
 qc_step2:
   afreq_ref:
-    EUR: "data/geno_ref/GENO-REF_1000G-sample_EUR.tsv.gz"
+    EUR: "data/afreq_ref/GENO-REF_1000G-sample_EUR.tsv.gz"

@@ -34,6 +34,8 @@ rule metal_run:
         log = "results/meta/{analysis_id}/METAL-GWAS.log",
         info = "results/meta/{analysis_id}/METAL-GWAS.tsv.info"
     threads: 8
+    container:
+        "docker://alhenry/gwaskit"
     params:
         outfile = lambda wc,output: Path(str(output.tsv)).with_suffix('').as_posix()
     shell:

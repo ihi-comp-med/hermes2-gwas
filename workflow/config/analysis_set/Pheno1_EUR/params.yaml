@@ -1,0 +1,7 @@
+gcta:
+  p_threshold: 1e-5
+  prefix_bfile_chr: data/geno_ref/chr
+  maf_threshold: 0.01
+
+ldak:
+  bld_ldak: bld.ldak.hapmap.gbr.tagging.sample

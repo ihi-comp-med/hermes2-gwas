@@ -45,9 +45,7 @@ checkpoint gcta_indep_loci_chr:
 
 def get_bfile_chr(wc):
     """get reference bfile set for gcta cojo"""
-    config_file = f"workflow/config/analysis_set/{wc.analysis_id}/locus_annot.yaml"
-    with open(config_file, 'r') as f:
-        config = yaml.load(f, Loader=yaml.FullLoader)
+    config = load_config(wc)
     prefix = config['gcta']['prefix_bfile_chr']
     return {'bfile': [prefix + f"{wc.chr}.{ext}" for ext in ['bed', 'bim', 'fam']],
             'p_threshold': config['gcta']['p_threshold'],

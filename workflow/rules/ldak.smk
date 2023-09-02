@@ -36,8 +36,8 @@ rule ldak_sumher_cohort:
         # these are defined in ldsc.smk
         samp_prev = 0.5,
         pop_prev = lambda wc: get_pop_prev(wc) * float(str(wc.prevmult))
-    singularity:
-        "docker://alhenry/gwaskit:latest"
+    container:
+        "docker://alhenry/docker-gwaskit:latest"
     shell:
         """
         {params.ldak_exec} \

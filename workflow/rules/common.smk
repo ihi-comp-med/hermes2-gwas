@@ -21,9 +21,18 @@ rule format_1000G:
     script:
         "scripts/common/format_1000G.R"
 
+# ------------------------
+# Common functions
+# ------------------------
+
 # load params config file for a given analysis set (for downstream GWAS analysis)
 def load_config(wc):
-    config_file = f"workflow/config/analysis_set/{wc.analysis_id}/locus_annot.yaml"
+    config_file = f"workflow/config/analysis_set/{wc.analysis_id}/params.yaml"
     with open(config_file, 'r') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
     return config
+
+def strip_ext(wc, x):
+    x_path = Path(str(x))
+    x_name = x_path.name.split('.')[0]
+    return (x_path.parent / x_name).as_posix()

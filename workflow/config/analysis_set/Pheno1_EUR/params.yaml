@@ -4,4 +4,6 @@ gcta:
   maf_threshold: 0.01
 
 ldak:
-  bld_ldak: bld.ldak.hapmap.gbr.tagging.sample
+  tagging_file:
+    bld_ldak: data/ldak_tagging_files/bld.ldak.hapmap.gbr.tagging.sample
+  pop_prev: 0.01

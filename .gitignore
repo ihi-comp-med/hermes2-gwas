@@ -47,3 +47,10 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Snakemake
+.snakemake/
+
+# Ignore data & results files
+data/
+results/

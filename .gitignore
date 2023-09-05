@@ -54,3 +54,4 @@ rsconnect/
 # Ignore data & results files
 data/
 results/
+job_logs/

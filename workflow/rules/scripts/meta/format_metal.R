@@ -29,12 +29,13 @@ df_new <- DT %>%
        mutate(across(c(chr, pos_b37), as.integer),
               A1_beta = ifelse(A1 == toupper(Allele1), Effect, -Effect),
               A1_freq = ifelse(A1 == toupper(Allele1), Freq1, 1 - Freq1),
-              logP = -log10(`P-value`)
+              logP = -log10(`P-value`),
+              N_control = N_total - N_case,
        ) %>%
        select(
               `#key` = MarkerName, chr, pos_b37, A1, A2, A1_beta,
               A1_freq, se = StdErr, pval = `P-value`, logP,
-              N_case, N_total, isq_het = HetISq, p_het = HetPVal
+              N_case, N_control, N_total, isq_het = HetISq, p_het = HetPVal
        )
 
 DT_map <- fread(input$map_rsid,

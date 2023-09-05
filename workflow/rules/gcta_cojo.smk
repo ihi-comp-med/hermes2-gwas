@@ -7,11 +7,6 @@
 container:
     "docker://alhenry/docker-gwaskit:latest"
 
-def gcta_get_n(wc):
-    df = pd.read_table(config['dir_res_meta'] + f'{wc.pheno}_{wc.ancestry}/METAL.N.tsv')
-    N_total = sum(df['N_case']) + sum(df['N_control'])
-    return N_total
-
 # separate GCTA sumstats per chr
 checkpoint gcta_indep_loci_chr:
     input:

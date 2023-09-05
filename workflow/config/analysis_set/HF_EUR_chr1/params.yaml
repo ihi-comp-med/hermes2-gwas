@@ -1,5 +1,5 @@
 gcta:
-  p_threshold: 1e-5
+  p_threshold: 5e-8
   prefix_bfile_chr: data/geno_ref/chr
   maf_threshold: 0.01
 
@@ -10,8 +10,6 @@ ldak:
 
 ldsc:
   hm3_snplist: data/ldsc/w_hm3.snplist
-  dir_ldsc_chr: data/ldsc/
-  pop_prev: 0.01
 
 polyfun:
   prefix_bfile_chr: data/geno_ref/chr

@@ -34,7 +34,7 @@ and can be symbolic links (e.g. from existing copies)
 ## `workflow`
 
 The `workflow` directory contains a [`snakemake`](https://snakemake.readthedocs.io/en/stable/index.html) pipeline to perform most of the analyses.
-Each key analysis is represented by a rule, as listed on `workflow/rules/{rule_name}.smk`.
+Each key analysis is represented by a set of rules, as listed on `workflow/rules/` directory.
 For reproduciblity purposes, most rules can be run in an isolated `conda` environment or `singularity` container using `--use-conda` and `--use-singularity` arguments, respectively.
 Please consult the [`snakemake` documentation](https://snakemake.readthedocs.io/en/stable/index.html) for guidance and additional options.
 

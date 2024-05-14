@@ -5,5 +5,5 @@ gcta:
 
 ldak:
   tagging_file:
-    bld_ldak: data/ldak_tagging_files/bld.ldak.hapmap.gbr.tagging.sample
+    bld_ldak: data/ldak/bld.ldak.hapmap.gbr.tagging
   pop_prev: 0.01

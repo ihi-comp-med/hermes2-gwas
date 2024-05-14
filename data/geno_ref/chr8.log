@@ -1,0 +1,27 @@
+PLINK v1.90b6.26 64-bit (2 Apr 2022)
+Options in effect:
+  --bfile ../reference/bfile_UKB10K_EUR/chr8_uniqID
+  --extract range sample_reg_set.txt
+  --make-bed
+  --out ld_ref/chr8
+
+Hostname: login13.myriad.ucl.ac.uk
+Working directory: /lustre/scratch/scratch/rmhiaah/Projects/HERMES/hermes-2.0-meta/data/sample
+Start time: Thu Aug 31 16:46:25 2023
+
+Random number seed: 1693496785
+192919 MB RAM detected; reserving 96459 MB for main workspace.
+539145 variants loaded from .bim file.
+10000 people (0 males, 0 females, 10000 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to ld_ref/chr8.nosex .
+--extract range: 539045 variants excluded.
+--extract range: 100 variants remaining.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 10000 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.975885.
+100 variants and 10000 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to ld_ref/chr8.bed + ld_ref/chr8.bim + ld_ref/chr8.fam ... done.
+
+End time: Thu Aug 31 16:46:31 2023

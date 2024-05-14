@@ -19,3 +19,17 @@ include: "rules/qc.smk"
 include: "rules/meta_analysis.smk"
 include: "rules/gcta_cojo.smk"
 include: "rules/ldak.smk"
+
+
+# Target output
+
+target_analysis = 'Pheno1_EUR'
+
+rule all:
+    input:
+        f"results/meta/{target_analysis}/FORMAT-GWAS.tsv.gz",
+        f"results/gcta/{target_analysis}/genome-wide_slct-cojo.tsv",
+        f"results/ldak/{target_analysis}/bld_ldak.hers"
+
+
+

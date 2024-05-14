@@ -1,6 +1,18 @@
 # Run LDAK to calculate heritability
 # Ref: https://dougspeed.com/ldak/
 
+rule dl_ldak_tagging_file:
+    """Download LDAK tagging file"""
+    output:
+        "data/ldak/bld.ldak.hapmap.gbr.tagging"
+    shell:
+        """
+        mkdir -p data/ldak/ && \
+        wget -P data/ldak https://genetics.ghpc.au.dk/doug/bld.ldak.hapmap.gbr.tagging.gz && \
+        gunzip data/ldak/bld.ldak.hapmap.gbr.tagging.gz
+        """
+
+
 
 rule ldak_format_sumstats_meta:
     """Format meta-analysis summary stats for LDAK"""

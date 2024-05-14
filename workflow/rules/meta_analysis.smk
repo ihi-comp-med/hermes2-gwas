@@ -5,8 +5,9 @@
 def get_metal_input(wc):
     df = pd.read_table(f"workflow/config/analysis_set/{wc.analysis_id}/meta_studies.tsv")
     cols = ['study', 'pheno', 'ancestry']
-    files = df.apply(lambda x: f'results/qc/step2/{x["study"]}/GWAS-QC2_{x["pheno"]}_{x["ancestry"]}.tsv.gz',
-                     axis = 1)    
+    files = df.apply(lambda x: f'results/qc/step2/{x["study"]}/GWAS-QC2_{x["pheno"]}_{x["ancestry"]}.tsv.gz', axis = 1).tolist()    
+    files += df.apply(lambda x: f'results/qc/step2/{x["study"]}/QQPLOT_{x["pheno"]}_{x["ancestry"]}.png', axis = 1).tolist()    
+    files += df.apply(lambda x: f'results/qc/step2/{x["study"]}/PZPLOT_{x["pheno"]}_{x["ancestry"]}.png', axis = 1).tolist()    
     return files
 
 

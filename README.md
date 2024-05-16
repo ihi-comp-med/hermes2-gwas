@@ -1,6 +1,8 @@
 # HERMES 2 GWAS
 
-Manuscript release version: [![DOI](https://zenodo.org/badge/685004997.svg)](https://zenodo.org/doi/10.5281/zenodo.11204853)
+Manuscript release version:
+
+[![DOI](https://zenodo.org/badge/685004997.svg)](https://zenodo.org/doi/10.5281/zenodo.11204853)
 
 This repository contains code and computational pipeline
 to reproduce key analyses performed in the genome-wide association study (GWAS)

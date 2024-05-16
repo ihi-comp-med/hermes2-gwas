@@ -23,21 +23,21 @@ are described on the [Rules](#rules) section
 
 ## Rules
 
-| Rule                        | Description                                                                                                                                                                                                  |
-| :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Rule                        | Description                                                                                                                                                                                      |
+| :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `qc_step1`                  | **Step 1 QC**: sanity check, create unique variant ID, harmonise allele (see **Note** )                                                                                                          |
 | `qc_step2`                  | **Step 2 QC**: QC based on allele comparison with reference panel (see **Note** ). For I/O efficiency, this step also makes an *AFCHECK* plot (allele frequency comparison with reference panel) |
-| `plot_qq`                   | Make *QQPLOT* (observed vs. expected log P-value)                                                                                                                                                            |
-| `plot_pz`                   | Make *PZPLOT* (reported vs. calculated P-value)                                                                                                                                                              |
-| `metal_make_config`         | Create config file for meta-analysis with METAL                                                                                                                                                              |
-| `metal_run`                 | Run meta-analysis with METAL                                                                                                                                                                                 |
-| `extract_N_meta`            | Extract N sample and other metadata from METAL log file                                                                                                                                                      |
-| `format_metal`              | Reformat METAL output                                                                                                                                                                                        |
-| `dl_ldak_tagging_file`      | Download pre-computed [LDAK tagging file](https://dougspeed.com/pre-computed-tagging-files/)                                                                                                                 |
-| `ldak_format_sumstats_meta` | Reformat GWAS summary statistics for LDAK input                                                                                                                                                              |
-| `ldak_sumher_meta`          | Perform LDAK SumHer SNP heritability estimation                                                                                                                                                              |
-| `gcta_slct_aggregate`       | Perform chromosome-wide conditional analysis with GCTA-CoJo                                                                                                                                                  |
-| `all`                       | Dummy rule to get target outputs (adjust in `workflow/Snakefile`)                                                                                                                                            |
+| `plot_qq`                   | Make *QQPLOT* (observed vs. expected log P-value)                                                                                                                                                |
+| `plot_pz`                   | Make *PZPLOT* (reported vs. calculated P-value)                                                                                                                                                  |
+| `metal_make_config`         | Create config file for meta-analysis with METAL                                                                                                                                                  |
+| `metal_run`                 | Run meta-analysis with METAL                                                                                                                                                                     |
+| `extract_N_meta`            | Extract N sample and other metadata from METAL log file                                                                                                                                          |
+| `format_metal`              | Reformat METAL output                                                                                                                                                                            |
+| `dl_ldak_tagging_file`      | Download pre-computed [LDAK tagging file](https://dougspeed.com/pre-computed-tagging-files/)                                                                                                     |
+| `ldak_format_sumstats_meta` | Reformat GWAS summary statistics for LDAK input                                                                                                                                                  |
+| `ldak_sumher_meta`          | Perform LDAK SumHer SNP heritability estimation                                                                                                                                                  |
+| `gcta_slct_aggregate`       | Perform chromosome-wide conditional analysis with GCTA-CoJo                                                                                                                                      |
+| `all`                       | Dummy rule to get target outputs (adjust in `workflow/Snakefile`)                                                                                                                                |
 
 **Note**
 
@@ -74,15 +74,31 @@ To reuse the pipeline with other data, please follow the structure within the `d
 
 ## Executing the workflow
 
-The worfklow can be executed by using snakemake CLI (tested on version 8+) e.g. 
+To execute the workflow, first clone the repo to local machine & enter the directory e.g.
+
+```
+git clone https://github.com/ihi-comp-med/hermes2-gwas.git
+cd hermes2-gwas
+```
+
+The worfklow can then be executed by using snakemake CLI (tested on version 8+) e.g. 
 
 ```
 snakemake -c all
 ```
 
-This will generate files stored on the `results` directory using the given test dataset
+This will generate files stored on the `results` directory using the provided test dataset.
+The target output files are defined in the `workflow/Snakefile` under the rule `all`
 
-Please consult the [`snakemake` documentation](https://snakemake.readthedocs.io/en/stable/index.html) for guidance and additional options.
+Output from specific analysis can be requested by specifying the target file.
+
+For example, the following command will run summary-level QC and generate some diagnostic plots for `Pheno1_EUR` phenotype from `StudyA`
+
+```
+snakemake -c all results/qc/step2/StudyA/GWAS-QC2_Pheno1_EUR.tsv.gz
+```
+
+Please consult the [`snakemake` documentation](https://snakemake.readthedocs.io/en/stable/index.html) for guidance and additional examples.
 
 ##  Package dependencies
 If the required software stacks are not available on the local system,
@@ -100,8 +116,8 @@ Until this note is removed, this feature is considered experimental.
 
 ## Ancillary analyses
 
-Other ancillary analyses reported in the manuscripts that are not yet
-included in the workflow can be performed using
+Other ancillary analyses reported in the published manuscripts that are not yet
+implemented in the workflow can be performed using
 publicly available softwares, listed below:
 
 | Analysis                                             | Software / Dataset                                                                                    | Version  / Release date |
@@ -121,13 +137,12 @@ publicly available softwares, listed below:
 | Intercellular communication                          | [`CellChat`](https://github.com/sqjin/CellChat)                                                       | v1.0                    |
 | Activity-by-contact enhancer mapping                 | [`ABC-Max`](https://github.com/EngreitzLab/ABC-GWAS-Paper)                                            | v2021-04-08             |
 | Differential gene expression                         | [`edgeR`](https://bioconductor.org/packages/release/bioc/html/edgeR.html)                             | v3.32.1                 |
-| Heritability enrichment                              | [`S-LDSC`](https://github.com/bulik/ldsc)                                                              | v1.0.1                  |
+| Heritability enrichment                              | [`S-LDSC`](https://github.com/bulik/ldsc)                                                             | v1.0.1                  |
 | Pathway enrichment                                   | [`gprofiler`](https://biit.cs.ut.ee/gprofiler/gost)                                                   | v0.2.3                  |
 | Polygenic risk score (PRS-CS)                        | [`PRScs`](https://github.com/getian107/PRScs)                                                         | v1.0                    |
 | Polygenic risk score (LDPRED2)                       | [`bigsnpr`](https://privefl.github.io/bigsnpr/index.html)                                             | v1.12.4                 |
 | Phenome-wide association analysis                    | [`phewas`](https://github.com/PheWAS/PheWAS)                                                          | v2018-03-12             |
 | Network analysis                                     | [`tidygraph`](https://tidygraph.data-imaginist.com/)                                                  | v1.2.3                  |
-
 
 
 

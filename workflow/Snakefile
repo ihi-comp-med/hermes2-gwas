@@ -19,8 +19,6 @@ include: "rules/qc.smk"
 include: "rules/meta_analysis.smk"
 include: "rules/gcta_cojo.smk"
 include: "rules/ldak.smk"
-include: "rules/ldsc.smk"
-include: "rules/finemap.smk"
 
 # Target output
 
@@ -30,8 +28,7 @@ rule all:
     input:
         f"results/meta/{target_analysis}/FORMAT-GWAS.tsv.gz",
         f"results/gcta/{target_analysis}/genome-wide_slct-cojo.tsv",
-        f"results/ldak/{target_analysis}/bld_ldak.hers",
-        f"results/ldsc/{target_analysis}/ldsc_h2.log"
+        f"results/ldak/{target_analysis}/bld_ldak.hers"
         
 
 

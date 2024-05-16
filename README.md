@@ -74,7 +74,7 @@ To reuse the pipeline with other data, please follow the structure within the `d
 
 ## Executing the workflow
 
-The worfklow can be executed by using snakemake CLI e.g. 
+The worfklow can be executed by using snakemake CLI (tested on version 8+) e.g. 
 
 ```
 snakemake -c all
@@ -82,14 +82,52 @@ snakemake -c all
 
 This will generate files stored on the `results` directory using the given test dataset
 
-To solve package dependencies, the workflow can also utilize [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)
-and / or [Apptainer](https://apptainer.org/docs/user/latest/index.html)(formerly Singularity)
-e.g. by running
-
-```
-snakemake -c all --use-conda --use-singularity
-```
-
 Please consult the [`snakemake` documentation](https://snakemake.readthedocs.io/en/stable/index.html) for guidance and additional options.
+
+##  Package dependencies
+If the required software stacks are not available on the local system,
+the workflow will try to solve package dependencies & required softwares by
+using [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)
+and / or [Apptainer](https://apptainer.org/docs/user/latest/index.html)(formerly Singularity).
+
+This can be executed by running:
+
+```
+snakemake -c all --sdm apptainer conda
+```
+
+Until this note is removed, this feature is considered experimental.
+
+## Ancillary analyses
+
+Other ancillary analyses reported in the manuscripts that are not yet
+included in the workflow can be performed using
+publicly available softwares, listed below:
+
+| Analysis                                             | Software / Dataset                                                                                    | Version  / Release date |
+| :--------------------------------------------------- | :---------------------------------------------------------------------------------------------------- | :---------------------- |
+| Functionally-informed fine-mapping                   | [`polyfun`](https://github.com/omerwe/polyfun)                                                        | v2023-11-14             |
+| Multi-trait analysis of GWAS                         | [`MTAG`](https://github.com/JonJala/mtag)                                                             | v1.0.8                  |
+| Genetic correlation                                  | [`LDSC`](https://github.com/bulik/ldsc)                                                               | v1.0.1                  |
+| Mendelian randomization                              | [`MendelianRandomization`](https://cran.r-project.org/web/packages/MendelianRandomization/index.html) | v0.7.0                  |
+| Genetic colocalization                               | [`coloc`](https://github.com/chr1swallace/coloc)                                                      | v5.2.3                  |
+| Variant annotation                                   | [`annovar`](https://annovar.openbioinformatics.org/en/latest/)                                        | v2020-06-07             |
+| Variant-to-gene annotation                           | [`v2g`](https://genetics.opentargets.org/)                                                            | v1.1                    |
+| Mendelian gene enrichment                            | [`MendelVar`](https://mendelvar.mrcieu.ac.uk/)                                                        | v2023-12-05             |
+| Polygenic prioritiy score                            | [`pops`](https://github.com/FinucaneLab/pops)                                                         | v0.1                    |
+| Multi-tissue transcriptome-wide association analysis | [`S-MulTiXcan`](https://github.com/hakyimlab/MetaXcan)                                                | v0.7.3                  |
+| Gene-based association test                          | [`magma`](https://cncr.nl/research/magma/)                                                            | v1.10                   |
+| Rare-variant association test                        | [`regenie`](https://cncr.nl/research/magma/)                                                          | v1.10                   |
+| Intercellular communication                          | [`CellChat`](https://github.com/sqjin/CellChat)                                                       | v1.0                    |
+| Activity-by-contact enhancer mapping                 | [`ABC-Max`](https://github.com/EngreitzLab/ABC-GWAS-Paper)                                            | v2021-04-08             |
+| Differential gene expression                         | [`edgeR`](https://bioconductor.org/packages/release/bioc/html/edgeR.html)                             | v3.32.1                 |
+| Heritability enrichment                              | [`S-LDSC`](ttps://github.com/bulik/ldsc)                                                              | v1.0.1                  |
+| Pathway enrichment                                   | [`gprofiler`](https://biit.cs.ut.ee/gprofiler/gost)                                                   | v0.2.3                  |
+| Polygenic risk score (PRS-CS)                        | [`PRScs`](https://github.com/getian107/PRScs)                                                         | v1.0                    |
+| Polygenic risk score (LDPRED2)                       | [`bigsnpr`](https://privefl.github.io/bigsnpr/index.html)                                             | v1.12.4                 |
+| Phenome-wide association analysis                    | [`phewas`](https://github.com/PheWAS/PheWAS)                                                          | v2018-03-12             |
+| Network analysis                                     | [`tidygraph`](https://tidygraph.data-imaginist.com/)                                                  | v1.2.3                  |
+
+
 
 

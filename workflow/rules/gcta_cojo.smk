@@ -4,16 +4,14 @@
 # -----------------------------------------
 # GCTA-COJO: conditional/joint analysis
 # -----------------------------------------
-def gcta_get_n(wc):
-    df = pd.read_table(config['dir_res_meta'] + f'{wc.pheno}_{wc.ancestry}/METAL.N.tsv')
-    N_total = sum(df['N_case']) + sum(df['N_control'])
-    return N_total
+container:
+    "docker://alhenry/docker-gwaskit:latest"
 
 # separate GCTA sumstats per chr
 checkpoint gcta_indep_loci_chr:
     input:
         sumstats = rules.format_metal.output.bgz,
-        config = "workflow/config/analysis_set/{analysis_id}/locus_annot.yaml",
+        config = "workflow/config/analysis_set/{analysis_id}/params.yaml",
         # gcta_ma=config['dir_res_post'] + '{pheno}_{ancestry}/GCTA/sumstats.ma',
         # pThresh_info = config['dir_res_meta'] + '{pheno}_{ancestry}/INFO-pThresh.tsv'
     output:
@@ -103,5 +101,6 @@ rule gcta_slct_aggregate:
     params:
         bp_window = 500_000
     threads: 8
+    container: None
     script:
         "scripts/gcta/aggregate_gcta_slct.R"

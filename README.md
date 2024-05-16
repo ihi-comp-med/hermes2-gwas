@@ -21,7 +21,6 @@ described in [Winkler T, *et al.* 2014](https://www.nature.com/articles/nprot.20
 Details of each step of the analysis, as represented by a *rule* (polygon in the figure),
 are described on the [Rules](#rules) section
 
-
 ## Rules
 
 | Rule                        | Description                                                                                                                                                                                                  |
@@ -91,6 +90,6 @@ e.g. by running
 snakemake -c all --use-conda --use-singularity
 ```
 
-For other options to run / decorate the workflow, see [Snakemake documentation](https://snakemake.readthedocs.io/en/stable/index.html)
+Please consult the [`snakemake` documentation](https://snakemake.readthedocs.io/en/stable/index.html) for guidance and additional options.
 
 

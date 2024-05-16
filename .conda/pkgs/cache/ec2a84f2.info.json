@@ -1,0 +1,11 @@
+{
+  "mod": "Thu, 21 Sep 2023 21:09:49 GMT",
+  "etag": "W/\"ddac58e4ec462a1900914ee2466fbb77\"",
+  "cache_control": "public, max-age=30",
+  "blake2_256_nominal": "f7b312ec41b2498cbc53ee8d34d6938cb8e7711a3b3b0919eea76d4089ecf524",
+  "blake2_256": "f7b312ec41b2498cbc53ee8d34d6938cb8e7711a3b3b0919eea76d4089ecf524",
+  "url": "https://repo.anaconda.com/pkgs/r/linux-aarch64",
+  "size": 134,
+  "mtime_ns": 1715866478000000000,
+  "refresh_ns": 1715866478289141946
+}

@@ -19,8 +19,15 @@
 # Snakemake
 .snakemake/
 
+<<<<<<< HEAD
 # results
 results/
 
 # BLD LDAK
 data/ldak/
+=======
+# Ignore data & results files
+data/
+results/
+job_logs/
+>>>>>>> 1e485e6e5f3c2a8833761b8df0465678361e316e

@@ -7,3 +7,13 @@ ldak:
   tagging_file:
     bld_ldak: data/ldak/bld.ldak.hapmap.gbr.tagging
   pop_prev: 0.01
+
+ldsc:
+  hm3_snplist: data/ldsc/w_hm3.snplist
+  dir_ldsc_chr: data/ldsc/
+  pop_prev: 0.01
+
+polyfun:
+  prefix_bfile_chr: data/geno_ref/chr
+  prefix_annot_chr: data/polyfun/baselineLF2.2.UKB/baselineLF2.2.UKB.
+  pip_percent_cs: 95

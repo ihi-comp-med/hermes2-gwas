@@ -1,6 +1,9 @@
 # Run LDAK to calculate heritability
 # Ref: https://dougspeed.com/ldak/
 
+container:
+    "docker://alhenry/docker-gwaskit"
+
 rule dl_ldak_tagging_file:
     """Download LDAK tagging file"""
     output:
@@ -11,8 +14,6 @@ rule dl_ldak_tagging_file:
         wget -P data/ldak https://genetics.ghpc.au.dk/doug/bld.ldak.hapmap.gbr.tagging.gz && \
         gunzip data/ldak/bld.ldak.hapmap.gbr.tagging.gz
         """
-
-
 
 rule ldak_format_sumstats_meta:
     """Format meta-analysis summary stats for LDAK"""
@@ -48,8 +49,7 @@ rule ldak_sumher_meta:
         # use n_eff and assume sample prevalence of 0.5
         samp_prev = 0.5,
         pop_prev = lambda x: load_config(x)["ldak"]["pop_prev"]
-    container:
-        "docker://alhenry/gwaskit"
+    threads: 8
     shell:
         """
         {params.ldak_exec} \
@@ -59,5 +59,6 @@ rule ldak_sumher_meta:
             --prevalence {params.pop_prev} \
             --ascertainment {params.samp_prev} \
             --check-sums NO \
+            --max-threads {threads} \
             | tee {output}.log
         """

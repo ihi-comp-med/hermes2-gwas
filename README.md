@@ -25,8 +25,8 @@ are described on the [Rules](#rules) section
 
 | Rule                        | Description                                                                                                                                                                                                  |
 | :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `qc_step1`                  | **Step 1 QC**: sanity check, create unique variant ID, harmonise allele (see [Note](#sec-qc-note) )                                                                                                          |
-| `qc_step2`                  | **Step 2 QC**: QC based on allele comparison with reference panel (see [Note](#sec-qc-note) ). For I/O efficiency, this step also makes an *AFCHECK* plot (allele frequency comparison with reference panel) |
+| `qc_step1`                  | **Step 1 QC**: sanity check, create unique variant ID, harmonise allele (see **Note** )                                                                                                          |
+| `qc_step2`                  | **Step 2 QC**: QC based on allele comparison with reference panel (see **Note** ). For I/O efficiency, this step also makes an *AFCHECK* plot (allele frequency comparison with reference panel) |
 | `plot_qq`                   | Make *QQPLOT* (observed vs. expected log P-value)                                                                                                                                                            |
 | `plot_pz`                   | Make *PZPLOT* (reported vs. calculated P-value)                                                                                                                                                              |
 | `metal_make_config`         | Create config file for meta-analysis with METAL                                                                                                                                                              |
@@ -39,7 +39,7 @@ are described on the [Rules](#rules) section
 | `gcta_slct_aggregate`       | Perform chromosome-wide conditional analysis with GCTA-CoJo                                                                                                                                                  |
 | `all`                       | Dummy rule to get target outputs (adjust in `workflow/Snakefile`)                                                                                                                                            |
 
-**Note** {#sec-qc-note}
+**Note**
 
 **Step 1 QC**
 
@@ -121,7 +121,7 @@ publicly available softwares, listed below:
 | Intercellular communication                          | [`CellChat`](https://github.com/sqjin/CellChat)                                                       | v1.0                    |
 | Activity-by-contact enhancer mapping                 | [`ABC-Max`](https://github.com/EngreitzLab/ABC-GWAS-Paper)                                            | v2021-04-08             |
 | Differential gene expression                         | [`edgeR`](https://bioconductor.org/packages/release/bioc/html/edgeR.html)                             | v3.32.1                 |
-| Heritability enrichment                              | [`S-LDSC`](ttps://github.com/bulik/ldsc)                                                              | v1.0.1                  |
+| Heritability enrichment                              | [`S-LDSC`](https://github.com/bulik/ldsc)                                                              | v1.0.1                  |
 | Pathway enrichment                                   | [`gprofiler`](https://biit.cs.ut.ee/gprofiler/gost)                                                   | v0.2.3                  |
 | Polygenic risk score (PRS-CS)                        | [`PRScs`](https://github.com/getian107/PRScs)                                                         | v1.0                    |
 | Polygenic risk score (LDPRED2)                       | [`bigsnpr`](https://privefl.github.io/bigsnpr/index.html)                                             | v1.12.4                 |

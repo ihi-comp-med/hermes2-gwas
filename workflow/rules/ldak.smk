@@ -7,7 +7,7 @@ container:
 rule dl_ldak_tagging_file:
     """Download LDAK tagging file"""
     output:
-        "data/ldak/bld.ldak.hapmap.gbr.tagging"
+        protected("data/ldak/bld.ldak.hapmap.gbr.tagging")
     shell:
         """
         mkdir -p data/ldak/ && \

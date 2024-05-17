@@ -19,7 +19,7 @@ The figure above is a toy example which performed the following:
 from study A and B following the procedure
 described in [Winkler T, *et al.* 2014](https://www.nature.com/articles/nprot.2014.071) 
 * Fixed-effect meta-analysis of GWAS of `Pheno1_EUR` using [METAL](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2922887/) 
-* Conditional-joint association analysis using GWAS summary statistics from the meta-analysis with (GCTA-CoJo)[https://yanglab.westlake.edu.cn/software/gcta/#COJO]
+* Conditional-joint association analysis using GWAS summary statistics from the meta-analysis with [GCTA-CoJo](https://yanglab.westlake.edu.cn/software/gcta/#COJO)
 * SNP Heritability assessment with [LDAK](https://dougspeed.com/snp-heritability/)  
 
 Details of each step of the analysis, as represented by a *rule* (polygon in the figure),
@@ -77,7 +77,6 @@ that are stored in the `data` directory.
 To reuse the pipeline with other data, please follow the structure within the `data` directory
 
 ## Executing the workflow
-
 To execute the workflow, first clone the repo to local machine & enter the directory e.g.
 
 ```
@@ -85,7 +84,7 @@ git clone https://github.com/ihi-comp-med/hermes2-gwas.git
 cd hermes2-gwas
 ```
 
-The worfklow can then be executed by using snakemake CLI (tested on version 8+) e.g. 
+The worfklow can then be executed by using snakemake CLI (requires [`snakemake v8+` installation](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html)) e.g. 
 
 ```
 snakemake -c all
@@ -110,7 +109,7 @@ the workflow will try to solve package dependencies & required softwares by
 using [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)
 and / or [Apptainer](https://apptainer.org/docs/user/latest/index.html)(formerly Singularity).
 
-This can be executed by running:
+The workflow can be executed by running the following command (requires local installation of apptainer):
 
 ```
 snakemake -c all --sdm apptainer conda
